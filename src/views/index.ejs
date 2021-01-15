@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <!-- Head -->
+    <%- include('partials/head.ejs')%>
+  </head>
+  <body>
+    <!-- Header -->
+    <%- include('partials/header.ejs')%>
+    <!-- Content -->
+    <div class="container p-2">
+      <div class="row">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Title</th>
+              <th scope="col">Description</th>
+              <th scope="col">Options</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% images.forEach(function(result){ %>
+            <tr>
+              <td><%= result.title%></td>
+              <td><%= result.description%></td>
+              <td>
+                <a href="<%= result.imagePath%>" class="btn btn-primary" target="_blank">VIEW</a>
+                <a href="/photo/<%= result.public_id%>" class="btn btn-danger">DELETE</a>
+              </td>
+            </tr>
+            <% }); %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!-- Footer -->
+    <%- include('partials/footer.ejs')%>
+  </body>
+</html>
